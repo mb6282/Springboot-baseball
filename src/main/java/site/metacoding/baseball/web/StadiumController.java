@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -56,9 +59,11 @@ public class StadiumController {
 		return new CMRespDto<>(1, "글수정성공", null);
 	}
 	
-	@DeleteMapping("/stadium/{id}")
-	public @ResponseBody CMRespDto<?> deleteStadium(@PathVariable Integer id) {
-		stadiumService.경기장삭제하기(id);
+	@PostMapping("/stadiumDelete")
+	public @ResponseBody CMRespDto<?> deleteStadium(@RequestParam(value="checkBoxArr[]") List<Integer> ids) {
+		//파라매터를 json형태로 받는 경우에는 @RequestBody HashMap<,>으로 받을 수 있으나
+		//경기장삭제하기에 id를 넣어주어야 하므로 Param으로 id값만 받는게 적절하다
+		stadiumService.경기장삭제하기(ids);
 		return new CMRespDto<>(1, "글삭제성공", null);
 	}
 }

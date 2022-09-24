@@ -14,7 +14,7 @@
 				<th>이름</th>
 				<th>개장일</th>
 				<th>수정</th>
-				<th>삭제</th>
+				<th><button type="button" onclick="stardiumDelete()">선택삭제</button></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +24,7 @@
 					<td>${stadium.stadiumName}</td>
 					<td><fmt:formatDate value="${stadium.createDate}" pattern="yyyy-MM-dd" /></td>
 					<td><a href="/stadium/${stadium.id}/${stadium.stadiumName}/updateForm"><i class="fa fa-wrench"></i></a></td>
-					<td><i onclick="stardiumDelete('${stadium.id}')" class="fa fa-minus"></i></td>
+					<td><input type=checkbox name="stadiumDelCheck" id="deleteId" value="${stadium.id}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>

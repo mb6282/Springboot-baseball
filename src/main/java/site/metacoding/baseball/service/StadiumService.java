@@ -37,8 +37,10 @@ public class StadiumService {
 		stadiumDao.update(stadiumPS);
 	}
 
-	public void 경기장삭제하기(Integer id) {
-		stadiumDao.deleteById(id);
+	public void 경기장삭제하기(List<Integer> ids) {
+		for(Integer id : ids) {
+			stadiumDao.deleteById(id);
+		}
 	}
 	
 }
