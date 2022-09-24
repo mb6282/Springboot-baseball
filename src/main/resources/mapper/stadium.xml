@@ -2,6 +2,42 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="site.metacoding.baseball.domain.stadium.StardiumDao">
+<mapper
+	namespace="site.metacoding.baseball.domain.stadium.StadiumDao">
+
+	<insert id="save">
+		INSERT INTO stadium(stadiumName, createDate)
+		VALUES
+		(#{stadiumName}, now())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.baseball.web.dto.response.StadiumDto">
+		SELECT
+		id,
+		(SELECT COUNT(*) + 1 FROM stadium WHERE stadiumName <![CDATA[<]]>
+		s.stadiumName) AS no,
+		stadiumName,
+		createDate
+		FROM stadium s
+		ORDER BY no
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.baseball.domain.stadium.Stadium">
+		SELECT id, stadiumName, createDate 
+		FROM stadium
+		WHERE id = #{id}
+	</select>
+
+	<update id="update">
+		UPDATE stadium SET stadiumName = #{stadiumName}
+		WHERE id = #{id}
+	</update>
+
+	<delete id="deleteById">
+		DELETE FROM stadium
+		WHERE id = #{id}
+	</delete>
 
 </mapper>

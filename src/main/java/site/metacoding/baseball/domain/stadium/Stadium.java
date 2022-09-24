@@ -1,12 +1,20 @@
 package site.metacoding.baseball.domain.stadium;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import java.sql.Timestamp;
 
-@Controller
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import site.metacoding.baseball.web.dto.request.StadiumUpdateDto;
+
+@NoArgsConstructor
+@Getter
 public class Stadium {
-	@GetMapping({ "/", "/stadium" })
-	public String getStadiumList() {
-		return "stadium/stadiumList";
+	private Integer id;
+	private String stadiumName;
+	private Timestamp createDate;
+
+	public void update(StadiumUpdateDto stadiumUpdateDto) {
+		this.stadiumName = stadiumUpdateDto.getStadiumName();
 	}
+	
 }

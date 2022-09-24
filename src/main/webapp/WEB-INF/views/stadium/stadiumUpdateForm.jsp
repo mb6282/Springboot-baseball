@@ -4,12 +4,14 @@
 
 <div class="container">
 	<br />
-	<h1>경기장 등록 페이지입니다.</h1>
+	<h1>경기장 수정 페이지입니다.</h1>
 
 	<br />
 	<form>
-		경기장 이름 : <input id="stadiumName" type="text" value="" />
-		<button type="button" onclick="stadiumSave()">등록</button>
+		<input id="id" type="hidden" value="${stadium.id}" />
+		경기장 이름 : <input id="stadiumName" type="text" value="${stadium.stadiumName}" />
+
+		<button type="button" onclick="stadiumUpdate()">수정</button>
 	</form>
 </div>
 

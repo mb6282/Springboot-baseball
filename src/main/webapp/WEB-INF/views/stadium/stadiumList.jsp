@@ -3,9 +3,10 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-<br/>
- <h1>경기장 목록 페이지입니다.</h1>
-<br/>
+	<br />
+	<h1>경기장 목록 페이지입니다.</h1>
+	<br />
+	
 	<table border="1" class="table">
 		<thead>
 			<tr>
@@ -17,15 +18,21 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach var="stadium" items="${stadiumDto}">
 				<tr>
-					<td>번호</td>
-					<td>이름</td>
-					<td>날짜</td>
-					<td><a href="#">수정</a></td>
-					<td>삭제</td>
+					<td>${stadium.no}</td>
+					<td>${stadium.stadiumName}</td>
+					<td><fmt:formatDate value="${stadium.createDate}" pattern="yyyy-MM-dd" /></td>
+					<td><a href="/stadium/${stadium.id}/${stadium.stadiumName}/updateForm"><i class="fa fa-wrench"></i></a></td>
+					<td><i onclick="stardiumDelete('${stadium.id}')" class="fa fa-minus"></i></td>
 				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 </div>
+
+<script src="/js/stadium.js">
+
+</script>
 
 <%@ include file="../layout/footer.jsp"%>
