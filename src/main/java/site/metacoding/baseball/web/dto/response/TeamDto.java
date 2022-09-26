@@ -1,15 +1,18 @@
-package site.metacoding.baseball.domain.team;
+package site.metacoding.baseball.web.dto.response;
 
 import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
+@Setter
 @Getter
-public class Team {
+public class TeamDto {
 	private Integer id;
-	private Integer stadiumId;
+	private Integer no;
+	private String stadiumName;
 	private String teamName;
 	private Timestamp createDate;
 }
