@@ -15,7 +15,7 @@
 				<th>팀 이름</th>
 				<th>창단일</th>
 				<th>수정</th>
-				<th><button type="button" onclick="stardiumDelete()">선택삭제</button></th>
+				<th><button type="button" onclick="teamDelete()">선택삭제</button></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,11 +26,15 @@
 					<td>${team.teamName}</td>
 					<td><fmt:formatDate value="${team.createDate}" pattern="yyyy-MM-dd" /></td>
 					<td><a href="/team/${team.id}/${team.teamName}/updateForm"><i class="fa fa-wrench"></i></a></td>
-					<td><input type=checkbox name="teamDelCheck" id="deleteId" value="${team.id}"></td>
+					<td><input type=checkbox name="teamDelCheck" value="${team.id}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </div>
+
+<script src="/js/team.js">
+
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

@@ -25,12 +25,31 @@
 
 	<select id="findById"
 		resultType="site.metacoding.baseball.domain.team.Team">
+		SELECT id, stadiumId, teamName, createDate
+		FROM team
+		WHERE id = #{id}
+	</select>
+
+	<select id="findDtoById"
+		resultType="site.metacoding.baseball.web.dto.response.TeamDto">
+		SELECT
+		t.id,
+		s.stadiumName,
+		t.teamName,
+		t.createDate
+		FROM team t
+		INNER JOIN stadium s
+		ON t.stadiumId = s.id
+		WHERE t.id = #{id}
 	</select>
 
 	<update id="update">
-
+		UPDATE team SET stadiumId = #{stadiumId}, teamName = #{teamName}
+		WHERE id = #{id}
 	</update>
 
 	<delete id="deleteById">
+		DELETE FROM team
+		WHERE id = #{id}
 	</delete>
 </mapper>

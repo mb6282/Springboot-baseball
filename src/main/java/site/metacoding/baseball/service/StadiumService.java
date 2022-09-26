@@ -23,7 +23,7 @@ public class StadiumService {
 		return stadiumDao.findAll();
 	}
 	
-	public Stadium 경기장수정화면가져오기(Integer id) {
+	public Stadium 경기장한개정보가져오기(Integer id) {
 //		if(stadiumPS == null) {
 //			throw new MyException(id+"의 게시글을 찾을 수 없습니다.");
 //		}

@@ -8,6 +8,7 @@ public interface TeamDao {
 	public void save(Team team);
 	public List<TeamDto> findAll();
 	public Team findById(Integer id);
-	public void update(Team stadium);
+	public TeamDto findDtoById(Integer id);
+	public void update(Team team);
 	public void deleteById(Integer id);
 }
