@@ -26,7 +26,7 @@
 					<td>${team.teamName}</td>
 					<td><fmt:formatDate value="${team.createDate}" pattern="yyyy-MM-dd" /></td>
 					<td><a href="/team/${team.id}/${team.teamName}/updateForm"><i class="fa fa-wrench"></i></a></td>
-					<td><input type=checkbox name="teamDelCheck" value="${team.id}"></td>
+					<td><input type=checkbox name="deleteCheck" value="${team.id}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>

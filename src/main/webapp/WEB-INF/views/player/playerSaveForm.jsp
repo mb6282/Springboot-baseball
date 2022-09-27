@@ -20,32 +20,7 @@
 </form>
 </div>
 
-<script>
-
-function playerSave() {
-
-	let data = {
-		playerName: $("#playerName").val(),
-		teamId : $("#teamId option:selected").val(),
-		position : $("#position").val()
-	};
-
-	$.ajax("/player", {
-		type: "POST",
-		dataType: "json",
-		data: JSON.stringify(data),
-		headers: {
-			"Content-Type": "application/json; charset=utf-8"
-		}
-	}).done((res) => {
-		if (res.code == 1) {
-			alert("선수 등록에 성공하였습니다");
-			location.href = "/player";
-		} else {
-			alert("선수 등록에 실패하였습니다");
-		}
-	});
-}
+<script src="/js/player.js">
 
 </script>
 <%@ include file="../layout/footer.jsp"%>

@@ -24,7 +24,7 @@
 					<td>${stadium.stadiumName}</td>
 					<td><fmt:formatDate value="${stadium.createDate}" pattern="yyyy-MM-dd" /></td>
 					<td><a href="/stadium/${stadium.id}/${stadium.stadiumName}/updateForm"><i class="fa fa-wrench"></i></a></td>
-					<td><input type=checkbox name="stadiumDelCheck" value="${stadium.id}"></td>
+					<td><input type=checkbox name="deleteCheck" value="${stadium.id}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>

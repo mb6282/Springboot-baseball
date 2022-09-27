@@ -42,8 +42,14 @@
 	</select>
 
 	<update id="update">
-		UPDATE player SET playerName = #{playerName}, teamId = #{teamId}, position = #{position}
+		UPDATE player SET playerName = #{playerName}, teamId
+		= #{teamId}, position = #{position}
 		WHERE id = #{id}
 	</update>
-	
+
+	<delete id="deleteById">
+		DELETE FROM player
+		WHERE id = #{id}
+	</delete>
+
 </mapper>

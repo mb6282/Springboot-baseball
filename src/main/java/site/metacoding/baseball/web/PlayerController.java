@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -59,5 +60,11 @@ public class PlayerController {
 	public @ResponseBody CMRespDto<?> updatePlayer(@PathVariable Integer id, @RequestBody PlayerUpdateDto playerUpdateDto) {
 		playerService.선수수정하기(id, playerUpdateDto);
 		return new CMRespDto<>(1, "선수정보수정성공", null);
+	}
+	
+	@PostMapping("/playerDelete")
+	public @ResponseBody CMRespDto<?> deletePlayer(@RequestParam(value = "checkBoxArr[]") List<Integer> ids) {
+		playerService.선수삭제하기(ids);
+		return new CMRespDto<>(1, "선수삭제성공", null);
 	}
 }

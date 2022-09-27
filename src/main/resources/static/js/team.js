@@ -49,7 +49,7 @@ function teamUpdate() {
 
 function teamDelete() {
 	let checkBoxArr = [];
-	$("input:checkbox[name='teamDelCheck']:checked").each(function() {
+	$("input:checkbox[name='deleteCheck']:checked").each(function() {
 		checkBoxArr.push($(this).val()); // 체크된 값 배열에 push
 	})
 	

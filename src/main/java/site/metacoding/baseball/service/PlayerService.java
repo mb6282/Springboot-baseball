@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.baseball.domain.player.Player;
 import site.metacoding.baseball.domain.player.PlayerDao;
-import site.metacoding.baseball.domain.team.Team;
 import site.metacoding.baseball.web.dto.request.PlayerUpdateDto;
-import site.metacoding.baseball.web.dto.request.TeamUpdateDto;
 
 @RequiredArgsConstructor
 @Service
@@ -32,5 +30,11 @@ public class PlayerService {
 		Player playerPS = playerDao.findById(id);
 		playerPS.update(playerUpdateDto);
 		playerDao.update(playerPS);
+	}
+	
+	public void 선수삭제하기(List<Integer> ids) {
+		for(Integer id : ids) {
+			playerDao.deleteById(id);
+		}
 	}
 }

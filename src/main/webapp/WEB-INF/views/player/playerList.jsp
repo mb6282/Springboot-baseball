@@ -15,7 +15,7 @@
 				<th>선수 이름</th>
 				<th>등록일</th>
 				<th>수정</th>
-				<th>삭제</th>
+				<th><button type="button" onclick="playerDelete()">선택삭제</button></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,11 +27,14 @@
 					<td>${player.playerName}</td>
 					<td><fmt:formatDate value="${player.createDate}" pattern="yyyy-MM-dd" /></td>
 					<td><a href="/player/${player.id}/${player.playerName}/updateForm"><i class="fa fa-wrench"></i></a></td>
-					<td><input type=checkbox name="teamDelCheck" value="${player.id}"></td>
+					<td><input type=checkbox name="deleteCheck" value="${player.id}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </div>
 
+<script src="/js/player.js">
+
+</script>
 <%@ include file="../layout/footer.jsp"%>
