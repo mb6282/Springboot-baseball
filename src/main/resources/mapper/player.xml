@@ -5,6 +5,11 @@
 <mapper
 	namespace="site.metacoding.baseball.domain.player.PlayerDao">
 
+	<insert id="save">
+		INSERT INTO player(playerName, teamId, position, createDate)
+		VALUES(#{playerName}, #{teamId}, #{position}, now())
+	</insert>
+	
 	<select id="findAll"
 		resultType="site.metacoding.baseball.domain.player.Player">
 		SELECT

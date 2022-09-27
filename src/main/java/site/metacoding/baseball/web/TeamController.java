@@ -43,7 +43,7 @@ public class TeamController {
 	@PostMapping("/team")
 	public @ResponseBody CMRespDto<?> saveStadium(@RequestBody Team team) {
 		teamService.팀등록하기(team);
-		return new CMRespDto<>(1, "경기장등록성공", null);
+		return new CMRespDto<>(1, "팀등록성공", null);
 	}
 
 	@GetMapping("/team/{id}/{name}/updateForm")
@@ -58,12 +58,12 @@ public class TeamController {
 	@PutMapping("/team/{id}")
 	public @ResponseBody CMRespDto<?> updateStadium(@PathVariable Integer id, @RequestBody TeamUpdateDto teamUpdateDto) {
 		teamService.팀수정하기(id, teamUpdateDto);
-		return new CMRespDto<>(1, "글수정성공", null);
+		return new CMRespDto<>(1, "팀수정성공", null);
 	}
 
 	@PostMapping("/teamDelete")
 	public @ResponseBody CMRespDto<?> deleteTeam(@RequestParam(value = "checkBoxArr[]") List<Integer> ids) {
 		teamService.팀삭제하기(ids);
-		return new CMRespDto<>(1, "글삭제성공", null);
+		return new CMRespDto<>(1, "팀삭제성공", null);
 	}
 }
