@@ -29,7 +29,8 @@
 					<li class="nav-item"><a class="nav-link" href="/stadium/saveForm">경기장 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/team">팀 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="/team/saveForm">팀 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">선수목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player">선수 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/saveForm">선수 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">팀 별 포지션 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">퇴출된 선수 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">퇴출 사유 등록</a></li>
