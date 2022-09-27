@@ -13,6 +13,9 @@ public class Stadium {
 	private String stadiumName;
 	private Timestamp createDate;
 
+	// 엔티티가 아닌 필드
+	private Integer no;
+	
 	public void update(StadiumUpdateDto stadiumUpdateDto) {
 		this.stadiumName = stadiumUpdateDto.getStadiumName();
 	}

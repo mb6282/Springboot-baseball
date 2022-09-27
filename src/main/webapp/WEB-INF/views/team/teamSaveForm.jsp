@@ -10,7 +10,7 @@
 <form>
 야구장 이름 : 
 <select id="stadiumId">
-	<c:forEach var="stadium" items="${stadiumDto}">
+	<c:forEach var="stadium" items="${stadium}">
 		<option value="${stadium.id}">${stadium.stadiumName}</option>
 	</c:forEach>
 </select>

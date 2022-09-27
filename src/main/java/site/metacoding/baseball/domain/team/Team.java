@@ -14,6 +14,10 @@ public class Team {
 	private String teamName;
 	private Timestamp createDate;
 	
+	//// 엔티티가 아닌 필드
+	private Integer no;
+	private String stadiumName;
+	
 	public void update(TeamUpdateDto teamUpdateDto) {
 		this.stadiumId = teamUpdateDto.getStadiumId();
 		this.teamName = teamUpdateDto.getTeamName();

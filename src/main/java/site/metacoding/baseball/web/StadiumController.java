@@ -17,7 +17,6 @@ import site.metacoding.baseball.domain.stadium.Stadium;
 import site.metacoding.baseball.service.StadiumService;
 import site.metacoding.baseball.web.dto.request.StadiumUpdateDto;
 import site.metacoding.baseball.web.dto.response.CMRespDto;
-import site.metacoding.baseball.web.dto.response.StadiumDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -27,8 +26,8 @@ public class StadiumController {
 	
 	@GetMapping({ "/", "/stadium" })
 	public String getStadiumList(Model model) {
-		List<StadiumDto> stadiumDtoPS = stadiumService.경기장목록보기();
-		model.addAttribute("stadiumDto", stadiumDtoPS);
+		List<Stadium> stadiumPS = stadiumService.경기장목록보기();
+		model.addAttribute("stadium", stadiumPS);
 		return "stadium/stadiumList";
 	}
 	

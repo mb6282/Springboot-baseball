@@ -12,7 +12,7 @@
 	</insert>
 
 	<select id="findAll"
-		resultType="site.metacoding.baseball.web.dto.response.StadiumDto">
+		resultType="site.metacoding.baseball.domain.stadium.Stadium">
 		SELECT
 		id,
 		(SELECT COUNT(*) + 1 FROM stadium WHERE stadiumName <![CDATA[<]]>

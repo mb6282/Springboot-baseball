@@ -18,7 +18,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="stadium" items="${stadiumDto}">
+			<c:forEach var="stadium" items="${stadium}">
 				<tr>
 					<td>${stadium.no}</td>
 					<td>${stadium.stadiumName}</td>

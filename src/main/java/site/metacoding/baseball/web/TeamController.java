@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.baseball.domain.stadium.Stadium;
 import site.metacoding.baseball.domain.team.Team;
 import site.metacoding.baseball.service.StadiumService;
 import site.metacoding.baseball.service.TeamService;
 import site.metacoding.baseball.web.dto.request.TeamUpdateDto;
 import site.metacoding.baseball.web.dto.response.CMRespDto;
-import site.metacoding.baseball.web.dto.response.StadiumDto;
-import site.metacoding.baseball.web.dto.response.TeamDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -29,15 +28,15 @@ public class TeamController {
 
 	@GetMapping("/team")
 	public String getTeamList(Model model) {
-		List<TeamDto> teamDtoPS = teamService.팀목록보기();
-		model.addAttribute("teamDto", teamDtoPS);
+		List<Team> teamPS = teamService.팀목록보기();
+		model.addAttribute("team", teamPS);
 		return "team/teamList";
 	}
 
 	@GetMapping("/team/saveForm")
 	public String teamSaveForm(Model model) {
-		List<StadiumDto> stadiumDtoPS = stadiumService.경기장목록보기();
-		model.addAttribute("stadiumDto", stadiumDtoPS);
+		List<Stadium> stadiumPS = stadiumService.경기장목록보기();
+		model.addAttribute("stadium", stadiumPS);
 		return "team/teamSaveForm";
 	}
 
@@ -49,10 +48,10 @@ public class TeamController {
 
 	@GetMapping("/team/{id}/{name}/updateForm")
 	public String teamUpdateForm(@PathVariable int id, @PathVariable String name, Model model) {
-		TeamDto teamDtoPS = teamService.경기장이름있는팀정보가져오기(id);
-		List<StadiumDto> stadiumDtoPS = stadiumService.경기장목록보기();
-		model.addAttribute("teamDto", teamDtoPS);
-		model.addAttribute("stadiumDto", stadiumDtoPS);
+		Team teamPS = teamService.경기장한개정보가져오기(id);
+		List<Stadium> stadiumPS = stadiumService.경기장목록보기();
+		model.addAttribute("team", teamPS);
+		model.addAttribute("stadium", stadiumPS);
 		return "team/teamUpdateForm";
 	}
 	

@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.baseball.domain.team.Team;
 import site.metacoding.baseball.domain.team.TeamDao;
 import site.metacoding.baseball.web.dto.request.TeamUpdateDto;
-import site.metacoding.baseball.web.dto.response.TeamDto;
 
 @RequiredArgsConstructor
 @Service
@@ -19,12 +18,12 @@ public class TeamService {
 		teamDao.save(team);
 	}
 	
-	public List<TeamDto> 팀목록보기() {
+	public List<Team> 팀목록보기() {
 		return teamDao.findAll();
 	}
 	
-	public TeamDto 경기장이름있는팀정보가져오기(Integer id) {
-		return teamDao.findDtoById(id);
+	public Team 경기장한개정보가져오기(Integer id) {
+		return teamDao.findById(id);
 		//TeamDto인 이유 : JOIN으로 StadiumName을 봐야 해서
 	}
 	

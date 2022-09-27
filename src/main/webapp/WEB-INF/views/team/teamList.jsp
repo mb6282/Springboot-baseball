@@ -19,7 +19,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="team" items="${teamDto}">
+			<c:forEach var="team" items="${team}">
 				<tr>
 					<td>${team.no}</td>
 					<td>${team.stadiumName}</td>

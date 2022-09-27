@@ -8,7 +8,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
@@ -22,8 +21,12 @@ public class MyBatisConfig {
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setMapperLocations(
         		new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
-        Resource myBatisConfig = new PathMatchingResourcePatternResolver().getResource("classpath:mybatis-config.xml");
-        sessionFactory.setConfigLocation(myBatisConfig);
+        
+        //Configuration이 이미 있으니 구분해주기 위해 다 써줌
+        org.apache.ibatis.session.Configuration config = new org.apache.ibatis.session.Configuration();
+        config.setMapUnderscoreToCamelCase(true);
+        sessionFactory.setConfiguration(config);
+        
         return sessionFactory.getObject();
     }
 

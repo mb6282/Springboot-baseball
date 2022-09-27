@@ -9,7 +9,7 @@
 	</insert>
 
 	<select id="findAll"
-		resultType="site.metacoding.baseball.web.dto.response.TeamDto">
+		resultType="site.metacoding.baseball.domain.team.Team">
 		SELECT
 		t.id,
 		(SELECT COUNT(*) + 1 FROM team WHERE teamName <![CDATA[<]]>
@@ -25,13 +25,6 @@
 
 	<select id="findById"
 		resultType="site.metacoding.baseball.domain.team.Team">
-		SELECT id, stadiumId, teamName, createDate
-		FROM team
-		WHERE id = #{id}
-	</select>
-
-	<select id="findDtoById"
-		resultType="site.metacoding.baseball.web.dto.response.TeamDto">
 		SELECT
 		t.id,
 		s.stadiumName,

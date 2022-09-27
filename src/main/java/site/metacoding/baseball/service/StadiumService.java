@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.baseball.domain.stadium.Stadium;
 import site.metacoding.baseball.domain.stadium.StadiumDao;
 import site.metacoding.baseball.web.dto.request.StadiumUpdateDto;
-import site.metacoding.baseball.web.dto.response.StadiumDto;
 
 @RequiredArgsConstructor
 @Service
@@ -19,7 +18,7 @@ public class StadiumService {
 		stadiumDao.save(stadium);
 	}
 	
-	public List<StadiumDto> 경기장목록보기() {
+	public List<Stadium> 경기장목록보기() {
 		return stadiumDao.findAll();
 	}
 	

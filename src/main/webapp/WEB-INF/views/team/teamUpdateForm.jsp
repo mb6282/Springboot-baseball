@@ -8,21 +8,21 @@
 
 <br/>
 <form>
-<input id="id" type="hidden" value="${teamDto.id}"/>
-현재 야구장 : <input type="text" value="${teamDto.stadiumName}" readOnly/>
+<input id="id" type="hidden" value="${team.id}"/>
+현재 야구장 : <input type="text" value="${team.stadiumName}" readOnly/>
 
 <hr/>
 
 수정할 경기장 선택 : 
 <select id="stadiumId">
-	<c:forEach var="stadium" items="${stadiumDto}">
+	<c:forEach var="stadium" items="${stadium}">
 		<option value="${stadium.id}">${stadium.stadiumName}</option>
 	</c:forEach>
 </select>
 
 <br/>
 <br/>
-팀 이름 : <input id="teamName" type="text" value="${teamDto.teamName}"/>
+팀 이름 : <input id="teamName" type="text" value="${team.teamName}"/>
 
 <button type="button" onclick="teamUpdate()">수정</button>
 </form>
