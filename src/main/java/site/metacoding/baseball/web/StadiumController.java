@@ -43,7 +43,7 @@ public class StadiumController {
 	}
 	
 	@GetMapping("/stadium/{id}/{name}/updateForm")
-	public String stadiumUpdateForm(@PathVariable int id, @PathVariable String name, Model model) {
+	public String stadiumUpdateForm(@PathVariable Integer id, @PathVariable String name, Model model) {
 		Stadium stadiumPS = stadiumService.경기장한개정보가져오기(id);
 		model.addAttribute("stadium", stadiumPS);
 		return "stadium/stadiumUpdateForm";

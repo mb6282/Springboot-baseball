@@ -22,9 +22,8 @@ public class TeamService {
 		return teamDao.findAll();
 	}
 	
-	public Team 경기장한개정보가져오기(Integer id) {
+	public Team 팀한개정보가져오기(Integer id) {
 		return teamDao.findById(id);
-		//TeamDto인 이유 : JOIN으로 StadiumName을 봐야 해서
 	}
 	
 	public void 팀수정하기(Integer id, TeamUpdateDto teamUpdateDto) {

@@ -47,8 +47,8 @@ public class TeamController {
 	}
 
 	@GetMapping("/team/{id}/{name}/updateForm")
-	public String teamUpdateForm(@PathVariable int id, @PathVariable String name, Model model) {
-		Team teamPS = teamService.경기장한개정보가져오기(id);
+	public String teamUpdateForm(@PathVariable Integer id, @PathVariable String name, Model model) {
+		Team teamPS = teamService.팀한개정보가져오기(id);
 		List<Stadium> stadiumPS = stadiumService.경기장목록보기();
 		model.addAttribute("team", teamPS);
 		model.addAttribute("stadium", stadiumPS);

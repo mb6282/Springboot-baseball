@@ -6,14 +6,15 @@
 	namespace="site.metacoding.baseball.domain.player.PlayerDao">
 
 	<insert id="save">
-		INSERT INTO player(playerName, teamId, position, createDate)
+		INSERT INTO player(playerName, teamId, position,
+		createDate)
 		VALUES(#{playerName}, #{teamId}, #{position}, now())
 	</insert>
-	
+
 	<select id="findAll"
 		resultType="site.metacoding.baseball.domain.player.Player">
 		SELECT
-		t.id,
+		p.id,
 		(SELECT COUNT(*) + 1 FROM player WHERE playerName <![CDATA[<]]>
 		p.playerName) AS no,
 		t.teamName,
@@ -26,4 +27,23 @@
 		ORDER BY no
 	</select>
 
+	<select id="findById"
+		resultType="site.metacoding.baseball.domain.player.Player">
+		SELECT
+		p.id,
+		t.teamName,
+		p.playerName,
+		p.position,
+		p.createDate
+		FROM player p
+		INNER JOIN team t
+		ON p.teamId = t.id
+		WHERE p.id = #{id}
+	</select>
+
+	<update id="update">
+		UPDATE player SET playerName = #{playerName}, teamId = #{teamId}, position = #{position}
+		WHERE id = #{id}
+	</update>
+	
 </mapper>

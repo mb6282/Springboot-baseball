@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import site.metacoding.baseball.web.dto.request.PlayerUpdateDto;
 
 @NoArgsConstructor
 @Getter
@@ -17,4 +18,10 @@ public class Player {
 	// 엔티티가 아닌 필드
 	private Integer no;
 	private String teamName;
+	
+	public void update(PlayerUpdateDto playerUpdateDto) {
+		this.playerName = playerUpdateDto.getPlayerName();
+		this.teamId = playerUpdateDto.getTeamId();
+		this.position = playerUpdateDto.getPlayerName();
+	}
 }
